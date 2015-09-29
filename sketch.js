@@ -1,23 +1,15 @@
-var red;
-var green;
-var blue;
-red=color(255,0,0);
-green=color(0,255,0);
-blue=color(0,0,255);
-var skincolors=[red,green,blue];
-
-
-var skin;
 
 function setup() {
-  createCanvas(1200, 800);
-    
+  createCanvas(1200, 800); 
 }
-
+var option=0
 function draw() {  
-  background(255);
-    skin=skincolors[0];
-  
+    var r = color(255,0,0);
+    var g = color(0,255,0);
+    var b = color(0,0,255);
+    var skincolors=[r,g,b];
+    background(255);
+    skin=skincolors[option];
     leftarm(skin);
     rightarm(skin);
     body(skin);
@@ -107,4 +99,12 @@ function feet(){
     curveVertex(600, 1200);
     curveVertex(600, 1200);
     endShape();
+}
+function keyPressed(){
+    if ((keyCode===ENTER)||(keyCode===RETURN)){
+        option++;
+        if (option>2){
+            option=0;
+        }
+    }
 }
